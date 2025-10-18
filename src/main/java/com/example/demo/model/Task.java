@@ -12,10 +12,15 @@ public class Task {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     Long id;
 
-
+    @ManyToOne
+    @JoinColumn(name = "owner_id")
+    User owner;
+    @NotBlank
     String title;
     String description;
     boolean completed;
 }
+
+
 
 
