@@ -17,23 +17,7 @@ public class DemoApplication {
 
     }
 
-    @Bean
-    public CommandLineRunner testUser(UserRepository userRepository, PasswordEncoder passwordEncoder) {
-        return args -> {
-        createUserIfNotFound(userRepository, passwordEncoder, "testA", "12456");
-        createUserIfNotFound(userRepository, passwordEncoder, "testB", "12457");
-        };
 
-    }
 
-    private void createUserIfNotFound (UserRepository userRepository, PasswordEncoder passwordEncoder, String username, String password){
 
-        if (!userRepository.findByUsername(username).isPresent()){
-            User user = new User();
-            user.setUsername(username);
-            user.setPassword(passwordEncoder.encode(password));
-            userRepository.save(user);
-            System.out.println(user.getUsername() + "criado");
-        }
-    }
 }

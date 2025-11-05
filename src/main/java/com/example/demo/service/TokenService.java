@@ -1,9 +1,6 @@
 package com.example.demo.service;
 
-import io.jsonwebtoken.Claims;
-import io.jsonwebtoken.JwtParser;
-import io.jsonwebtoken.Jwts;
-import io.jsonwebtoken.SignatureAlgorithm;
+import io.jsonwebtoken.*;
 import io.jsonwebtoken.security.Keys;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.security.core.userdetails.UserDetails;
@@ -42,15 +39,19 @@ public class TokenService {
     }
 
     public boolean isTokenValid(String token, UserDetails userDetails) {
-        Claims claims = (Claims) Jwts.parser()
-                .verifyWith(Keys.hmacShaKeyFor(secretKey.getBytes()))
-                .build()
-                .parse(token)
-                .getPayload();
+
+        try {
+            Claims claims = (Claims) Jwts.parser()
+                    .verifyWith(Keys.hmacShaKeyFor(secretKey.getBytes()))
+                    .build()
+                    .parse(token)
+                    .getPayload();
 
 
-        return (claims.getSubject().equals(userDetails.getUsername())) && claims.getExpiration().after(new Date()) ;
-
+            return (claims.getSubject().equals(userDetails.getUsername())) && claims.getExpiration().after(new Date());
+        }  catch (JwtException e) {
+            return false;
+        }
 
     }
 }
