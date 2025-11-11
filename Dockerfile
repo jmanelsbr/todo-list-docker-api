@@ -14,7 +14,7 @@ RUN ./mvnw dependency:go-offline
 
 
 COPY src/ src/
-
+RUN ./mvnw package
 
 
 FROM eclipse-temurin:21-jre-alpine
