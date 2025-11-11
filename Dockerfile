@@ -7,6 +7,9 @@ COPY .mvn/ .mvn
 COPY mvnw pom.xml ./
 
 
+RUN chmod +x mvnw
+
+
 RUN ./mvnw dependency:go-offline
 
 
@@ -21,4 +24,17 @@ WORKDIR /app
 COPY --from=builder /app/target/demo-0.0.1-SNAPSHOT.jar app.jar
 
 
+ENV PORT=${PORT:8080}
+ENV SPRING_DATASOURCE_URL=${SPRING_DATASOURCE_URL}
+ENV PGHOST=${PGHOST}
+ENV PGPORT=${PGPORT}
+ENV PGDATABASE=${PGDATABASE}
+ENV PGUSER=${PGUSER}
+ENV PGPASSWORD=${PGPASSWORD}
+ENV JWT_SECRET=${JWT_SECRET}
+
+
+EXPOSE ${PORT}
+
+# --- Ponto de Entrada Final ---
 ENTRYPOINT ["java", "-jar", "app.jar"]
