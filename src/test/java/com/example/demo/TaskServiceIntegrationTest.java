@@ -17,7 +17,7 @@ import static org.assertj.core.api.Assertions.assertThat;
 import static org.mockito.Mockito.verify;
 
 @SpringBootTest
-public class TaskServiceIntegrationTest {
+public class TaskServiceIntegrationTest extends AbstractIntegrationTest{
     @Autowired
     TaskService taskService;
     @Autowired
