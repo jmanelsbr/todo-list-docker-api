@@ -1,5 +1,6 @@
 package com.example.demo.service;
 
+import com.example.demo.AbstractIntegrationTest;
 import com.example.demo.dto.TaskRequestDTO;
 import com.example.demo.dto.TaskResponseDTO;
 import com.example.demo.model.Task;
@@ -28,7 +29,7 @@ import static org.mockito.Mockito.*;
 
 @ExtendWith(SpringExtension.class)
 @SpringBootTest
-public class TaskServiceTest {
+public class TaskServiceTest extends AbstractIntegrationTest {
     @MockitoBean
     private TaskRepository taskRepository;
 
