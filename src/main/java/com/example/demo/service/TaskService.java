@@ -9,6 +9,8 @@ import com.example.demo.model.User;
 import com.example.demo.repository.TaskRepository;
 import com.example.demo.repository.UserRepository;
 import jakarta.validation.Valid;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.http.HttpStatus;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
@@ -24,6 +26,7 @@ import java.util.Optional;
 @Service
 public class TaskService {
 
+    private static final Logger logger = LoggerFactory.getLogger(TaskService.class);
     private final TaskRepository taskRepository;
     private final UserRepository userRepository;
 
@@ -48,6 +51,8 @@ public class TaskService {
         Task taskToSave = TaskMapper.toTask(taskRequestDTO);
         taskToSave.setOwner(taskOwner);
         Task savedTask = taskRepository.save(taskToSave);
+
+        logger.debug("Task {} created for user: {}", savedTask.getId(), taskOwner.getUsername());
 
         return TaskMapper.toTaskResponseDTO(savedTask);
 

@@ -51,7 +51,15 @@ public class SecurityConfig {
         http.addFilterBefore(jwtAuthFilter, UsernamePasswordAuthenticationFilter.class);
         http.authorizeHttpRequests(authorizeHttpRequests ->
                 authorizeHttpRequests.
-                        requestMatchers("/h2-console/**", "/auth/**").permitAll().
+                        requestMatchers(
+                                "/h2-console/**",
+                                "/auth/**",
+                                "/v3/api-docs/**",
+                                "/swagger-ui/**",
+                                "/swagger-ui.html",
+                                "/actuator/**"
+
+                                ).permitAll().
                         anyRequest().authenticated());
 
         http.authenticationProvider(provider);
