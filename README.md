@@ -8,7 +8,7 @@ O objetivo deste projeto foi ir além do básico e construir uma aplicação bac
 
 A API está rodando no Railway. Você pode testar os endpoints e ver a documentação via Swagger UI aqui:
 
-**[Acessar Documentação (Swagger)](https://SUA-URL-DO-RAILWAY.up.railway.app/swagger-ui.html)**
+**[Acessar Documentação (Swagger)](https://todo-api-production-68c2.up.railway.app/swagger-ui.html)**
 
 > **Login para teste:**
 > Para acessar as rotas protegidas, use o endpoint /auth/login com um destes usuários:
