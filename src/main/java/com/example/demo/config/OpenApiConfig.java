@@ -18,11 +18,8 @@ import org.springframework.context.annotation.Configuration;
         ),
         servers = {
                 @Server(url = "/", description = "Default Server URL")
-        },
-        security = {
-                @SecurityRequirement(name = "bearerAuth")
+        }
 
-}
 )
 @SecurityScheme(
         name = "bearerAuth",
