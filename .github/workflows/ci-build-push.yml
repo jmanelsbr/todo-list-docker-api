@@ -38,10 +38,10 @@ jobs:
           docker build -t jmanoel/todo-api:latest .
           docker push jmanoel/todo-api:latest 
 
-deploy:
-  needs: build-and-push
-  runs-on: ubuntu-latest
-  steps:
+  deploy:
+    needs: build-and-push
+    runs-on: ubuntu-latest
+    steps:
       - name: Deploy via SSH to Oracle Cloud
         uses: appleboy/ssh-action@v1.0.3
         with:
