@@ -8,7 +8,7 @@ O objetivo deste projeto foi ir além do básico e construir uma aplicação bac
 
 A API está rodando no Railway. Você pode testar os endpoints e ver a documentação via Swagger UI aqui:
 
-**[Acessar Documentação (Swagger)](https://todo-api-production-68c2.up.railway.app/swagger-ui.html)**
+**[Acessar Documentação (Swagger)](http://136.248.121.116:8080/swagger-ui/index.html#/)**
 
 > **Login para teste:**
 > Para acessar as rotas protegidas, use o endpoint /auth/login com um destes usuários:
@@ -26,7 +26,7 @@ A API está rodando no Railway. Você pode testar os endpoints e ver a documenta
 
 ## O que tem no projeto?
 
-* **Segurança Real:** Autenticação via Token JWT. Nada de basic auth.
+* **Segurança Real:** Autenticação via Token JWT.
 * **Isolamento de Dados:** Um usuário não consegue acessar ou alterar as tarefas de outro.
 * **CRUD Completo:** Criar, listar, atualizar e deletar tarefas com validações de entrada.
 * **Observabilidade:** Logs estruturados e endpoints de health check monitorando o banco de dados.
